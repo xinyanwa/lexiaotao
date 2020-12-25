@@ -5,7 +5,12 @@
     <from>
       <div class="mb-3">
         <label class="form-label">邮箱地址</label>
-        <validate-input-vue :rules="emailRules"/>
+        <validate-input-vue :rules="emailRules"
+        placeholder="请输入邮箱账号"
+        type="text"/>
+        <label class="form-label">邮箱地址</label>
+        <validate-input-vue :rules="password" placeholder="请输入密码"
+        type="password"/>
       </div>
     </from>
   </div>
@@ -60,10 +65,14 @@ export default defineComponent({
       { type: 'required', message: '电子邮箱地址不能为空' },
       { type: 'email', message: '请输入正确的电子邮箱格式' }
     ]
+    const password: RulesProp = [
+      { type: 'required', message: '电子邮箱地址不能为空' }
+    ]
     return {
       // list: testData,
       currentUser,
-      emailRules
+      emailRules,
+      password
     }
   }
 })

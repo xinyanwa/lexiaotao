@@ -1,11 +1,11 @@
 <template>
   <div class="valid-input-container pb=3">
     <input
-      type="text"
       class="form-control"
       :class="{'is-invalid': inputRef.error}"
       v-model="inputRef.val"
       @blur="validateInput"
+      v-bind="$attrs"
     />
     <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
   </div>
@@ -26,6 +26,7 @@ export default defineComponent({
   props: {
     rules: Array as PropType<RulesProp>
   },
+  inheritAttrs: false,
   setup(props) {
     const inputRef = reactive({
       val: '',
